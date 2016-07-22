@@ -2,7 +2,7 @@ FROM owncloud/ubuntu
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
+RUN apt-get update -y && apt-get install -y \
   apache2 \
   libapache2-mod-php7.0 \
   php7.0-gd \
