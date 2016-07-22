@@ -6,7 +6,7 @@ while ! ping -c1 mariadb &>/dev/null; do :; done
 while ! mysql -h mariadb -u root -p$MARIADB_ENV_MARIADB_ROOT_PASSWORD -e "show databases" &>/dev/null; do :; done
 
 # Install ownCloud
-occ maintenance:install --database "mysql" --database-name "owncloud"  --database-host "mariadb" --database-user "root" --database-pass "$MARIADB_ENV_MARIADB_ROOT_PASSWORD" --admin-user "admin" --admin-pass "password" --data-dir "/mnt/data"
+occ maintenance:install --database "mysql" --database-name "owncloud"  --database-host "mariadb" --database-user "root" --database-pass "$MARIADB_ENV_MARIADB_ROOT_PASSWORD" --admin-user "admin" --admin-pass "password" --data-dir "/mnt/data/files"
 
 chmod 0644 /mnt/data/files/.htaccess
 chmod 0644 /var/www/owncloud/.htaccess

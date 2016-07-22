@@ -20,7 +20,9 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
   php-redis \
   smbclient \
   php-smbclient \
-  mysql-client
+  mysql-client \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # apache modules oc needs as documented
 RUN a2enmod rewrite

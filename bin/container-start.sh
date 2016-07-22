@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Volume could be empty, recreate folders
+mkdir -p /mnt/data/config
+mkdir -p /mnt/data/files
+chown www-data:www-data /mnt/data/*
+
+echo "waiting for infrastructure startup"
+while ! ping -c1 mariadb &>/dev/null; do :; done
+while ! mysql -h mariadb -u root -p$MARIADB_ENV_MARIADB_ROOT_PASSWORD -e "show databases" &>/dev/null; do :; done
+
 if [[ ! -f /mnt/data/config/config.php ]]
 then
   echo "Installing"
