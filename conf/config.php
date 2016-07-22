@@ -1,5 +1,5 @@
 <?php
 $CONFIG = array (
-  'datadirectory' => '/mnt/data',
-  'logfile' => '/mnt/data/owncloud.log',
+  'datadirectory' => '/mnt/data/files',
+  'logfile' => '/mnt/data/files/owncloud.log',
 );

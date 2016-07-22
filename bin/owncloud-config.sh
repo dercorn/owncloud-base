@@ -8,7 +8,7 @@ while ! mysql -h mariadb -u root -p$MARIADB_ENV_MARIADB_ROOT_PASSWORD -e "show d
 # Install ownCloud
 occ maintenance:install --database "mysql" --database-name "owncloud"  --database-host "mariadb" --database-user "root" --database-pass "$MARIADB_ENV_MARIADB_ROOT_PASSWORD" --admin-user "admin" --admin-pass "password" --data-dir "/mnt/data"
 
-chmod 0644 /mnt/data/.htaccess
+chmod 0644 /mnt/data/files/.htaccess
 chmod 0644 /var/www/owncloud/.htaccess
 
 # Loglevel 0=Debug 

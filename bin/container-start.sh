@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [[ ! -f /var/www/owncloud/config/config.php ]]
+if [[ ! -f /mnt/data/config/config.php ]]
 then
   echo "Installing"
 
-  mkdir -p /var/www/owncloud/config
-  cp /root/config.php /var/www/owncloud/config/config.php
+  cp /root/config.php /mnt/data/config/config.php
+	ln -s /mnt/data/config /var/www/owncloud/config
   chown -R www-data:www-data /var/www/owncloud
 
   owncloud-config.sh
@@ -21,5 +21,5 @@ service apache2 start
 
 # Start cron (todo)
 
-su www-data -s /bin/bash -c "touch /mnt/data/owncloud.log"
-tail -F /mnt/data/owncloud.log
+su www-data -s /bin/bash -c "touch /mnt/data/files/owncloud.log"
+tail -F /mnt/data/files/owncloud.log

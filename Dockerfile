@@ -43,7 +43,8 @@ RUN sed -i 's|post_max_size = 8M|post_max_size = 20G|' /etc/php/7.0/cli/php.ini
 
 # create folders
 RUN mkdir -p /var/www/owncloud
-RUN mkdir -p /mnt/data
+RUN mkdir -p /mnt/data/files
+RUN mkdir -p /mnt/data/config
 
 RUN chsh -s /bin/bash www-data
 RUN chown -R www-data.www-data /mnt/data
@@ -67,6 +68,7 @@ RUN chmod 0755 src/bin/*
 RUN cp src/bin/* /usr/local/bin
 
 VOLUME /mnt/data
+
 
 EXPOSE 443
 EXPOSE 80
