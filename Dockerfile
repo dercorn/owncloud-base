@@ -41,7 +41,7 @@ RUN sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 20G|' /etc/php/7.0/
 RUN sed -i 's|post_max_size = 8M|post_max_size = 20G|' /etc/php/7.0/apache2/php.ini
 RUN sed -i 's|post_max_size = 8M|post_max_size = 20G|' /etc/php/7.0/cli/php.ini
 
-# create folders
+# create folders for owncloud source, files and config
 RUN mkdir -p /var/www/owncloud
 RUN mkdir -p /mnt/data/files
 RUN mkdir -p /mnt/data/config
