@@ -54,6 +54,9 @@ RUN sed -i 's_DocumentRoot /var/www/html_DocumentRoot /var/www/owncloud_' /etc/a
 RUN sed -i 's|</VirtualHost>|\t<IfModule mod_headers.c>\n\t\t\tHeader always set Strict-Transport-Security "max-age=15768000; includeSubDomains; preload"\n\t\t</IfModule>\n\t</VirtualHost>|' /etc/apache2/sites-enabled/default-ssl.conf
 RUN sed -i 's|unset HOME|unset HOME\nexport HOME=/var/www|' /etc/apache2/envvars
 
+# Base config
+ADD conf/config.php /root/config.php
+
 # Provide scripts in /usr/local/bin
 ADD bin src/bin
 RUN chmod 0755 src/bin/*
