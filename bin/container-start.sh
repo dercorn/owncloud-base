@@ -15,7 +15,8 @@ then
   rm -rf /var/www/owncloud/config
   cp /root/config.php /mnt/data/config/config.php
   ln -s /mnt/data/config /var/www/owncloud/config
-  chown -R www-data:www-data /var/www/owncloud
+  chown -R www-data.www-data /var/www/owncloud
+  chown -R www-data.www-data /mnt/data/config
 
   owncloud-config.sh
 else
