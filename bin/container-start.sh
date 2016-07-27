@@ -23,8 +23,9 @@ else
   # offer backups here, optional
 
   rm -rf /var/www/owncloud/config
-  su www-data -s /bin/bash -c "ln -s /mnt/data/config /var/www/owncloud/config"
-
+  ln -s /mnt/data/config /var/www/owncloud/config
+  chown -R www-data.www-data /mnt/data/config
+  
   echo "Update if needed"
   occ upgrade --skip-migration-test --no-interaction
 fi
