@@ -33,6 +33,9 @@ RUN a2enmod mime
 RUN a2enmod ssl
 RUN a2ensite default-ssl
 
+# PHP Configs
+RUN echo "apc.enable_cli=1" >> /etc/php/7.0/cli/php.ini
+
 # Load php-libsmbclient
 RUN echo "extension=smbclient.so" > /etc/php/7.0/cli/conf.d/20-smbclint.ini
 RUN echo "extension=smbclient.so" > /etc/php/7.0/apache2/conf.d/20-smbclint.ini
